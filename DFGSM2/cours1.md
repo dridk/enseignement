@@ -11,11 +11,11 @@ Mr Dupond 34 ans
 
 Découverte par coloscopie de 70 polypes intestinaux dans le cadre de rectorragies.
 Le père et la grand-mère sont tous les deux décédés d'un cancer colorectal.
-Vous suspectez un cause génétique et décider d'envoyer un tube de sang à Rennes pour le séquençage nouvelle générations (NGS) des principaux gènes associés aux cancers digestifs.
+Vous suspectez une cause génétique et décider d'envoyer un tube de sang à Rennes pour le séquençage nouvelles générations (NGS) des principaux gènes associés aux cancers digestifs.
 
 
 ---
-# Le séquençage de nouvelle générations (NGS ) 
+# Le séquençage de nouvelles générations (NGS ) 
 ## Séquençage d'un génome humain en 1990
 - Coût : 3 milliards de dollars 
 - Temps : 13 ans 
@@ -33,7 +33,7 @@ Vous suspectez un cause génétique et décider d'envoyer un tube de sang à Ren
 
 --- 
 
-# Le séquençage de nouvelle générations (NGS ) 
+# Le séquençage de nouvelles générations (NGS ) 
 
 
 ![](explosion.png)
@@ -52,7 +52,7 @@ Vous suspectez un cause génétique et décider d'envoyer un tube de sang à Ren
 ## Hg19.fa
 - Construit à partir de plusieurs donneurs anonymes 
 - contient ~3 milliards de nucléotides 
-- Fichier de ~3 giga octets ( 1 base = 1 octet )
+- Fichier de ~3 gigaoctets ( 1 base = 1 octet )
 
 *Démo*
 
@@ -76,7 +76,7 @@ Fichier pouvant contenir des milliards de fragments appelés **reads**
 --- 
 # Fichier après alignement 
 ## Fichier *Sam*/*Bam*
-Contient les reads et leurs positions sur le génome de référence.
+Contiens les reads et leurs positions sur le génome de référence.
 
 	 
   	chr3	32423423	GATTTGGGGTTCAAAGCAGTATCGATCAAA
@@ -99,9 +99,9 @@ Contient les reads et leurs positions sur le génome de référence.
 # Comment aligner les reads ?
 
 ### A vous de jouer
-Trouver la positions des reads suivants sur un génome de référence 
+Trouver la position des reads suivants sur un génome de référence 
 
-	Genome de Référence 
+	Génome de Référence 
     PANAMABANANA$
     123456789...
 
@@ -139,6 +139,8 @@ Pour aligner la séquence **ATGGTAGTAGTACCGTAATA** sur le génome de référence
 
 Combien de temps faudrait-il pour aligner 65 millions de reads ? 
 
+	Okay, Google ....
+
 
 
 
@@ -151,7 +153,7 @@ La référence peut être décomposée en tous ses suffixes pour construire [l'a
 
 ![center](suffix_tree.png)
 
-Quel est la position des mots **BANANAS, BANA et ANA** ?
+Quelle est la position des mots **BANANAS, BANA et ANA** ?
 
 ---
 
@@ -159,7 +161,7 @@ Quel est la position des mots **BANANAS, BANA et ANA** ?
 
 - Trouver tous les suffixes du mot **PANAMABANANA$** 
 - Associer à chaque suffixe sa position 
-- Ordonnez les par ordre alphabétique 
+- Ordonnez-les par ordre alphabétique 
 - Trouver *rapidement* les positions du mot **ANA**
 
 
@@ -181,7 +183,7 @@ Quel est la position des mots **BANANAS, BANA et ANA** ?
     1	PANAMABANANA$
 
 ---
-# Liste des suffixes ( alphabétique )
+# Liste des suffixes ordonnés
 
     13      $
     12      A$
@@ -201,17 +203,17 @@ Quel est la position des mots **BANANAS, BANA et ANA** ?
 ---
 
 # Suffix Array 
-## Temps de calcul : Rapide ✔️
-## Consommation sur le disque dur : 
-- Combien de suffixes avez vous avec le génome de référence?
-- Combien avez-vous de lettre sur l'ensemble du suffix array ?
-- Quel est la taille que prendrait ce fichier ? (1 base = 1 octet )
+## Temps de calcul : rapide ✔️
+## Utilisation du disque dur : 
+- Combien de suffixes avez-vous avec le génome de référence?
+- Combien avez-vous de lettres sur l'ensemble du suffix array ?
+- Quelle est la taille que prendrait ce fichier ? (1 base = 1 octet )
 
 ---
 
 # Suffix Array 
 ## Consommation sur le disque dur : 
-- Combien de suffixes avez vous avec le génome de référence?
+- Combien de suffixes avez-vous avec le génome de référence?
 
 II y a 3 milliards de suffixes
 - Combien avez-vous de lettres sur l'ensemble du suffix array ?
@@ -221,9 +223,9 @@ II y a 3 milliards de suffixes
 $$\sum_{0}^{n} = \frac{n(n+1)}{2} $$
 
 
-- Quel est la taille que prendrait ce fichier ? (1 base = 1 octet )
+- Quelle est la taille que prendrait ce fichier ? (1 base = 1 octet )
 
-4'000'000 To Soit 2 millions de disque dur de 2To. 
+4'000'000 To soit 2 millions de disques durs de 2To. 
 
 
 ---
@@ -244,7 +246,7 @@ Faite la transformation de Burrows-wheeler du mot **PANAMABANANA$**
 # Transformation de Burrows-wheeler
 
 
-    # ROTATION                     # TRIE ALPHABETIQUE
+    # ROTATION                     # TRIE ALPHABÉTIQUE.
     PANAMABANANA$                  $PANAMABANANA
     ANAMABANANA$P                  A$PANAMABANAN
     NAMABANANA$PA                  ABANANA$PANAM
@@ -269,14 +271,14 @@ Faite la transformation de Burrows-wheeler du mot **PANAMABANANA$**
 
 ### ANMNNPBAAAAA$
 
-La propriété de la transformation de Burrows-wheeler est de rassembler les même lettres ensembles.
+La propriété de la transformation de Burrows-wheeler est de rassembler les mêmes lettres ensemble.
 
 Permet de faire de la compression: **ANM2NPB5A$**
 
 ---
 # Transformation de Burrows-wheeler
 
-A partir du suffix array vu précédement, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAAAA$ 🧠🧠🧠
+À partir du suffix array vu précédemment, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAAAA$ 🧠🧠🧠
 
 	PANAMABANANA$
 
@@ -298,7 +300,7 @@ A partir du suffix array vu précédement, retrouver directement la transformé 
 ---
 # Transformation de Burrows-wheeler
 
-A partir du suffix array vu précédement, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAAA<b style='color:red'>A</b>$ 🧠🧠🧠
+À partir du suffix array vu précédemment, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAAA<b style='color:red'>A</b>$ 🧠🧠🧠
 
 <pre>
 
@@ -322,7 +324,7 @@ PANAMABANAN<b style='color:red'>A</b>$
 ---
 # Transformation de Burrows-wheeler
 
-A partir du suffix array vu précédement, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAA<b style='color:red'>AA</b>$ 🧠🧠🧠
+À partir du suffix array vu précédemment, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAA<b style='color:red'>AA</b>$ 🧠🧠🧠
 
 <pre>
 
@@ -346,7 +348,7 @@ PANAM<b style='color:red'>A</b>BANANA$
 ---
 # Transformation de Burrows-wheeler
 
-A partir du suffix array vu précédement, retrouver directement la transformé de Burrows-wheeler ANMNNPBAA<b style='color:red'>AAA</b>$ 🧠🧠🧠
+À partir du suffix array vu précédemment, retrouver directement la transformé de Burrows-wheeler ANMNNPBAA<b style='color:red'>AAA</b>$ 🧠🧠🧠
 
 <pre>
 
@@ -354,8 +356,8 @@ PAN<b style='color:red'>A</b>MABANANA$
 
 13      $
 12      A$
-<b style='color:red'>6</b>       ABANANA$
-4       AMABANANA$
+6       ABANANA$
+<b style='color:red'>4</b>       AMABANANA$
 10      ANA$
 2       ANAMABANANA$
 8       ANANA$
@@ -370,7 +372,7 @@ PAN<b style='color:red'>A</b>MABANANA$
 ---
 # L'inverse de Burrows-wheeler
 
-Quel est le mot à l'origine de la transformé suivante : 
+Quel est le mot à l'origine de la transformée suivante : 
 
 
  <h3>EBN$NAA</h3>
@@ -389,7 +391,7 @@ Quel est le mot à l'origine de la transformé suivante : **BANANE$**
 ---
 # Trouver la position d'un mot
 
-A partir de la transformé , trouver la position des mots : 
+À partir de la transformée , trouver la position des mots : 
 
 - ANA
 - AN
@@ -399,11 +401,11 @@ A partir de la transformé , trouver la position des mots :
 
 
 # Transformation de Burrows-wheeler
-## Temps de calcul : Rapide ✔️
-## Consommation sur le disque dur ✔️ 
+## Temps de calcul : rapide ✔️
+## Utilisation du disque dur : possible ✔️ 
 Il faut juste stocker la transformation de Burrows-wheeler ainsi que d'autres informations comme la position des lettres.
 
-### Cette algorithme est disponible via l'outils : BWA 
+### Cet algorithme est disponible via l'outil : BWA 
 
 ---
 
@@ -419,8 +421,16 @@ Il faut juste stocker la transformation de Burrows-wheeler ainsi que d'autres in
 # Conclusion 
 Identification d'une mutation dans le gène APC : **g.112175246 A>G**
 
-- Que faite vous ? 
+- Que faites-vous ? 
 	- Confirmation de la mutation 
 	- Surveillance rapprochée par coloscopie
-	- Etude familiale avec consentement
+	- Étude familiale avec consentement
+
+
+--- 
+
+# Référence
+
+http://bioinformaticsalgorithms.com/
+
 
