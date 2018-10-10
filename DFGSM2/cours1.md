@@ -227,29 +227,200 @@ $$\sum_{0}^{n} = \frac{n(n+1)}{2} $$
 
 
 ---
-# Transformé de Burrows-wheeler
+# Transformation de Burrows-wheeler
 
-Faite la transformé de Burrows wheeler du mot : x 
-sans faire la matrix 
+La transformation de Burrows-wheeler est une méthode permettant d'encoder et de décoder un texte.
 
-Faite l'inverse de la transformé de Burrows wheeler du mot : X
+&emsp;&emsp;&emsp;&emsp;![80%](bwa.png)
+
+---
+
+# Transformation de Burrows-wheeler
+Faite la transformation de Burrows-wheeler du mot **PANAMABANANA$**
+
+
+---
+
+# Transformation de Burrows-wheeler
+
+
+    # ROTATION                     # TRIE ALPHABETIQUE
+    PANAMABANANA$                  $PANAMABANANA
+    ANAMABANANA$P                  A$PANAMABANAN
+    NAMABANANA$PA                  ABANANA$PANAM
+    AMABANANA$PAN                  AMABANANA$PAN
+    MABANANA$PANA                  ANA$PANAMABAN
+    ABANANA$PANAM                  ANAMABANANA$P
+    BANANA$PANAMA                  ANANA$PANAMAB
+    ANANA$PANAMAB                  BANANA$PANAMA
+    NANA$PANAMABA                  MABANANA$PANA
+    ANA$PANAMABAN                  NA$PANAMABANA
+    NA$PANAMABANA                  NAMABANANA$PA
+    A$PANAMABANAN                  NANA$PANAMABA
+    $PANAMABANANA                  PANAMABANANA$
+    
+    
+	Transformé: ANMNNPBAAAAA$
+    
+    
+---
+
+# Transformation de Burrows-wheeler
+
+### ANMNNPBAAAAA$
+
+La propriété de la transformation de Burrows-wheeler est de rassembler les même lettres ensembles.
+
+Permet de faire de la compression: **ANM2NPB5A$**
+
+---
+# Transformation de Burrows-wheeler
+
+A partir du suffix array vu précédement, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAAAA$ 🧠🧠🧠
+
+	PANAMABANANA$
+
+    13      $
+    12      A$
+    6       ABANANA$
+    4       AMABANANA$
+    10      ANA$
+    2       ANAMABANANA$
+    8       ANANA$
+    7       BANANA$
+    5       MABANANA$
+    11      NA$
+    3       NAMABANANA$
+    9       NANA$
+    1       PANAMABANANA$
+
+
+---
+# Transformation de Burrows-wheeler
+
+A partir du suffix array vu précédement, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAAA<b style='color:red'>A</b>$ 🧠🧠🧠
+
+<pre>
+
+PANAMABANAN<b style='color:red'>A</b>$
+
+13      $
+<b style='color:red'>12</b>      A$
+6       ABANANA$
+4       AMABANANA$
+10      ANA$
+2       ANAMABANANA$
+8       ANANA$
+7       BANANA$
+5       MABANANA$
+11      NA$
+3       NAMABANANA$
+9       NANA$
+1       PANAMABANANA$
+</pre>
+ 
+---
+# Transformation de Burrows-wheeler
+
+A partir du suffix array vu précédement, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAA<b style='color:red'>AA</b>$ 🧠🧠🧠
+
+<pre>
+
+PANAM<b style='color:red'>A</b>BANANA$
+
+13      $
+12      A$
+<b style='color:red'>6</b>       ABANANA$
+4       AMABANANA$
+10      ANA$
+2       ANAMABANANA$
+8       ANANA$
+7       BANANA$
+5       MABANANA$
+11      NA$
+3       NAMABANANA$
+9       NANA$
+1       PANAMABANANA$
+</pre>
+ 
+---
+# Transformation de Burrows-wheeler
+
+A partir du suffix array vu précédement, retrouver directement la transformé de Burrows-wheeler ANMNNPBAA<b style='color:red'>AAA</b>$ 🧠🧠🧠
+
+<pre>
+
+PAN<b style='color:red'>A</b>MABANANA$
+
+13      $
+12      A$
+<b style='color:red'>6</b>       ABANANA$
+4       AMABANANA$
+10      ANA$
+2       ANAMABANANA$
+8       ANANA$
+7       BANANA$
+5       MABANANA$
+11      NA$
+3       NAMABANANA$
+9       NANA$
+1       PANAMABANANA$
+</pre>
+ 
+---
+# L'inverse de Burrows-wheeler
+
+Quel est le mot à l'origine de la transformé suivante : 
+
+
+ <h3>EBN$NAA</h3>
+
+
+---
+# L'inverse de Burrows-wheeler
+
+Quel est le mot à l'origine de la transformé suivante : **BANANE$**
+
+
+![center](reverse2.png)
+
+
+
+---
+# Trouver la position d'un mot
+
+A partir de la transformé , trouver la position des mots : 
+
+- ANA
+- AN
 
 
 ---
 
 
-# Variant Calling 
+# Transformation de Burrows-wheeler
+## Temps de calcul : Rapide ✔️
+## Consommation sur le disque dur ✔️ 
+Il faut juste stocker la transformation de Burrows-wheeler ainsi que d'autres informations comme la position des lettres.
 
-Quel mutation retrouvé ? 
+### Cette algorithme est disponible via l'outils : BWA 
+
+---
+
+
+# Après l'alignement ... 
+## Le variant calling 
+
+![center](vcf.png)
+
 
 --- 
 
 # Conclusion 
-Chez le patient, on retrouve cette mutation. 
+Identification d'une mutation dans le gène APC : **g.112175246 A>G**
 
-- Que faite vous ==> Etude familliale 
-- Un mot sur l'éthique
-- Un mot sur l'identito vigilience 
-- Un mot d'accroche pour la suite 
-	- Comment faire si on a pas de référence 
-	- Comment nommer les mutations 
+- Que faite vous ? 
+	- Confirmation de la mutation 
+	- Surveillance rapprochée par coloscopie
+	- Etude familiale avec consentement
+
