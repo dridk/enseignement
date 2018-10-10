@@ -1,3 +1,5 @@
+<!-- page_number: true -->
+
 Séquençage haut débit et algorithme d'alignement
 ===
 
@@ -96,6 +98,15 @@ Contiens les reads et leurs positions sur le génome de référence.
 
 
 --- 
+# Stratégie de séquençage 
+
+Whole genom, Whole exome, Panel 
+
+ ![center](wgs_wes.jpg)
+
+
+
+--- 
 # Comment aligner les reads ?
 
 ### A vous de jouer
@@ -185,20 +196,21 @@ Quelle est la position des mots **BANANAS, BANA et ANA** ?
 ---
 # Liste des suffixes ordonnés
 
-    13      $
-    12      A$
-    6       ABANANA$
-    4       AMABANANA$
-    10      ANA$
-    2       ANAMABANANA$
-    8       ANANA$
-    7       BANANA$
-    5       MABANANA$
-    11      NA$
-    3       NAMABANANA$
-    9       NANA$
-    1       PANAMABANANA$
-
+<pre>
+13      $
+12      A$
+6       ABANANA$
+4       AMABANANA$
+10      <b>ANA$</b>
+2       <b>ANAMABANANA$</b>
+8       <b>ANANA$</b>
+7       BANANA$
+5       MABANANA$
+11      NA$
+3       NAMABANANA$
+9       NANA$
+1       PANAMABANANA$
+</pre>
 
 ---
 
