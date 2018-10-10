@@ -109,7 +109,7 @@ Whole genom, Whole exome, Panel
 --- 
 # Comment aligner les reads ?
 
-### A vous de jouer
+### Exercice 1
 Trouver la position des reads suivants sur un génome de référence 
 
 	Génome de Référence 
@@ -126,6 +126,7 @@ Reads
 ---
 
 # Alignement naïf 
+
 
 	PANAMABANANA$
 	PANA........   => position 1
@@ -152,23 +153,30 @@ Combien de temps faudrait-il pour aligner 65 millions de reads ?
 
 	Okay, Google ....
 
+---
 
+# Alignement naïf
+## Temps de calcul 
+Pour aligner la séquence **ATGGTAGTAGTACCGTAATA** sur le génome de référence hg19.fa, il faut environ 30 secondes*.
 
+<br/>
 
-<em style="font-size:15px;position:absolute; top:500px"> * Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz </em>
+Combien de temps faudrait-il pour aligner 65 millions de reads ? 
+
+	61,793091 années
+
 
 ---
 
 # Arbre des suffixes ( Suffix Tree )
-La référence peut être décomposée en tous ses suffixes pour construire [l'arbre des suffixes](https://fr.wikipedia.org/wiki/Arbre_des_suffixes).
-
+La référence peut être décomposée pour construire [l'arbre des suffixes](https://fr.wikipedia.org/wiki/Arbre_des_suffixes).
 ![center](suffix_tree.png)
-
-Quelle est la position des mots **BANANAS, BANA et ANA** ?
+##### Exercice 2: Positions des mots **BANANAS, BANA et ANA** ?
 
 ---
 
 # Liste des suffixes ( Suffix array )
+### Exercice 3
 
 - Trouver tous les suffixes du mot **PANAMABANANA$** 
 - Associer à chaque suffixe sa position 
@@ -224,10 +232,9 @@ Quelle est la position des mots **BANANAS, BANA et ANA** ?
 ---
 
 # Suffix Array 
-## Consommation sur le disque dur : 
+## Utilisation du disque dur : 
 - Combien de suffixes avez-vous avec le génome de référence?
-
-II y a 3 milliards de suffixes
+	- II y a 3 milliards de suffixes
 - Combien avez-vous de lettres sur l'ensemble du suffix array ?
 
 		1 + 2 + 3 + 4 + 5 .... + 3 milliards  = 4.5e+18
@@ -236,8 +243,7 @@ $$\sum_{0}^{n} = \frac{n(n+1)}{2} $$
 
 
 - Quelle est la taille que prendrait ce fichier ? (1 base = 1 octet )
-
-4'000'000 To soit 2 millions de disques durs de 2To. 
+	- 4'000'000 To soit 2 millions de disques durs de 2To. 
 
 
 ---
@@ -250,6 +256,8 @@ La transformation de Burrows-wheeler est une méthode permettant d'encoder et de
 ---
 
 # Transformation de Burrows-wheeler
+### Exercice 4
+
 Faite la transformation de Burrows-wheeler du mot **PANAMABANANA$**
 
 
@@ -289,7 +297,7 @@ Permet de faire de la compression: **ANM2NPB5A$**
 
 ---
 # Transformation de Burrows-wheeler
-
+### Exercice 5
 À partir du suffix array vu précédemment, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAAAA$ 🧠🧠🧠
 
 	PANAMABANANA$
@@ -383,7 +391,7 @@ PAN<b style='color:red'>A</b>MABANANA$
  
 ---
 # L'inverse de Burrows-wheeler
-
+### Exercice 6
 Quel est le mot à l'origine de la transformée suivante : 
 
 
@@ -393,6 +401,7 @@ Quel est le mot à l'origine de la transformée suivante :
 ---
 # L'inverse de Burrows-wheeler
 
+
 Quel est le mot à l'origine de la transformé suivante : **BANANE$**
 
 
@@ -401,21 +410,20 @@ Quel est le mot à l'origine de la transformé suivante : **BANANE$**
 
 
 ---
-# Trouver la position d'un mot
-
-À partir de la transformée , trouver la position des mots : 
+# Aligner à l'aide de Burrows-wheeler
+### Exercice 7
+À partir de la transformée et des positions , trouver ou s'aligne les mots suivants: 
 
 - ANA
 - AN
-
 
 ---
 
 
 # Transformation de Burrows-wheeler
 ## Temps de calcul : rapide ✔️
-## Utilisation du disque dur : possible ✔️ 
-Il faut juste stocker la transformation de Burrows-wheeler ainsi que d'autres informations comme la position des lettres.
+## Utilisation du disque dur : Good ✔️ 
+Il faut juste stocker la transformation de Burrows-wheeler ainsi que d'autres informations comme les positions.
 
 ### Cet algorithme est disponible via l'outil : BWA 
 
