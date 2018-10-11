@@ -132,7 +132,7 @@ Reads
 	PANA........   => position 1
     
 	PANAMABANANA$
-    ......BANA     => position 6
+    ......BANA     => position 7
           
 	PANAMABANANA$
     ..NAM          => position 3
@@ -171,7 +171,9 @@ Combien de temps faudrait-il pour aligner 65 millions de reads ?
 # Arbre des suffixes ( Suffix Tree )
 La référence peut être décomposée pour construire [l'arbre des suffixes](https://fr.wikipedia.org/wiki/Arbre_des_suffixes).
 ![center](suffix_tree.png)
-##### Exercice 2: Positions des mots **BANANAS, BANA et ANA** ?
+
+### Exercice 2: Positions des mots **BANANAS, BANA, ANA** ?
+<em style="font-size:29px"> Erratum : position + 1 </em>
 
 ---
 
@@ -298,7 +300,7 @@ Permet de faire de la compression: **ANM2NPB5A$**
 ---
 # Transformation de Burrows-wheeler
 ### Exercice 5
-À partir du suffix array vu précédemment, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAAAA$ 🧠🧠🧠
+À partir du suffix array vu précédemment, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAAAA$ 
 
 	PANAMABANANA$
 
@@ -320,7 +322,7 @@ Permet de faire de la compression: **ANM2NPB5A$**
 ---
 # Transformation de Burrows-wheeler
 
-À partir du suffix array vu précédemment, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAAA<b style='color:red'>A</b>$ 🧠🧠🧠
+À partir du suffix array vu précédemment, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAAA<b style='color:red'>A</b>$ 
 
 <pre>
 
@@ -344,7 +346,7 @@ PANAMABANAN<b style='color:red'>A</b>$
 ---
 # Transformation de Burrows-wheeler
 
-À partir du suffix array vu précédemment, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAA<b style='color:red'>AA</b>$ 🧠🧠🧠
+À partir du suffix array vu précédemment, retrouver directement la transformé de Burrows-wheeler ANMNNPBAAA<b style='color:red'>AA</b>$ 
 
 <pre>
 
@@ -368,7 +370,7 @@ PANAM<b style='color:red'>A</b>BANANA$
 ---
 # Transformation de Burrows-wheeler
 
-À partir du suffix array vu précédemment, retrouver directement la transformé de Burrows-wheeler ANMNNPBAA<b style='color:red'>AAA</b>$ 🧠🧠🧠
+À partir du suffix array vu précédemment, retrouver directement la transformé de Burrows-wheeler ANMNNPBAA<b style='color:red'>AAA</b>$ 
 
 <pre>
 
